@@ -7,7 +7,7 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 const DATABASE_ACCESS=process.env.DATABASE_ACCESS
-const BACK_URL= process.env.BACK_URL || 8000
+const PORT= process.env.PORT || 8000
 
 const jwt = require("jsonwebtoken");
 app.set("view engine", "ejs");
@@ -46,7 +46,7 @@ mongoose.connect(DATABASE_ACCESS,{
 require("./models/userDetails");
 
 const User = mongoose.model("patientData");
-app.listen(BACK_URL, () => {
+app.listen(PORT, () => {
     console.log(`Server is running on port 8000.`);
   });
 app.post("/register",async(req,res)=>{
